@@ -1,0 +1,119 @@
+    Lead:{
+1        create lead,
+2        update lead,
+3        delete lead {admin},
+4        update leadS tage,
+5        read only,
+    }
+
+    leadStage:{
+6        create leadStage,
+7        update leadStage,
+8        delete leadStage,
+9        read only,
+    }
+
+    project:{
+10        create project { client, team },
+11        update project { client, team },
+12        read only,
+    }
+
+    team:{
+13        create team,
+14        update team,
+15        remove participant from team {admin},
+16        read only,
+    }
+
+    user:{
+17        read all user,
+18        give permission to user { admin },
+19        remove permission from user { admin },
+20        verify and assign role and team to user { admin },
+    }
+
+    client:{
+21        create client { lead },
+22        update client,
+23        delete client {admin},
+24        read only,
+    }
+
+    meeting:{
+25        create meeting {project, client},
+26        update meeting,
+27        read only,
+    }
+
+    connection:{
+28        create connection,
+29        update connection,
+30        delete connection {admin},
+31        read only,
+    }
+
+    query:{
+32        delete query {admin}, 
+33        respond to query,
+34        read only,
+    }
+
+
+
+
+user Model Permission
+
+user.permission: {
+      lead:{
+        create: false,
+        update: false,
+        delete: false,
+        updateStage: false,
+        read: false,
+      },
+      leadStage:{
+        create: false,
+        update: false,
+        delete: false,
+        read: false,
+      },
+      project:{
+        create: false,
+        update: false,
+        read: false,
+      },
+      team:{
+        create: false,
+        update: false,
+        removeParticipant: false,
+        read: false,
+      },
+      user:{
+        read: false,
+        verifyAndAssignRoleAndTeam: false,
+      },
+      client:{
+        create: false,
+        update: false,
+        delete: false,
+        read: false,
+      },
+      meeting:{
+        create: false,
+        update: false,
+        read: false,
+      },
+      connection:{
+        create: false,
+        update: false,
+        delete: false,
+        read: false,
+      },
+      query:{
+        respond: false,
+        read: false,
+      },
+    }
+
+
