@@ -1,4 +1,3 @@
-
 const express = require("express");
 const app = express();
 const cors = require("cors");
@@ -17,7 +16,7 @@ const projectRoutes = require("./routes/projectRoutes");
 const meetingRoutes = require("./routes/meetingRoutes");
 const contactRoutes = require("./routes/contactRoutes");
 const dashboardRoutes = require("./routes/dashboardRoutes")
-const attendanceRoutes  =  require("./routes/attendanceRoutes")
+const attendanceRoutes = require("./routes/attendanceRoutes")
 const cookieParser = require("cookie-parser");
 const passport = require("passport");
 const session = require("express-session");
@@ -42,8 +41,8 @@ app.use(cookieParser());
 
 app.use(
   cors({
-    origin: [ "http://localhost:3000","http://localhost:5173"],
-    credentials: true,  
+    origin: ["http://localhost:3000", "http://localhost:5173", "https://crm-0y3x.onrender.com/"],
+    credentials: true,
   })
 );
 
@@ -87,7 +86,7 @@ app.use("/api/client", clientRoutes);
 app.use("/api/project", projectRoutes);
 app.use("/api/meeting", meetingRoutes);
 app.use("/api/dashboard", dashboardRoutes)
-app.use("/api/attendance",attendanceRoutes);
+app.use("/api/attendance", attendanceRoutes);
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
 });
